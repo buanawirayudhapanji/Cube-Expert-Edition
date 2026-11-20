@@ -1220,6 +1220,7 @@ class StudioUI:
         p.new_bank.setText('Buat bank'); p.import_file.setText('Impor file')
         p.new_sound.setText('Paket preset + IR')
         create = QPushButton('Buat baru')
+        self.collection_create = create
         create.setProperty('menuControl', True)
         menu = QMenu(create)
         for button in (p.new_bank, p.new_sound):
@@ -1227,6 +1228,8 @@ class StudioUI:
             button.hide()
             menu.addAction(button.text(), button.click)
         create.setMenu(menu)
+        for button in (p.new_preset, create, p.import_file):
+            button.setSizePolicy(QSizePolicy.Ignored, QSizePolicy.Preferred)
         left.addLayout(row(p.new_preset, create, p.import_file))
         p.kind_filter = QComboBox(); p.kind_filter.addItem('Semua', None)
         for text,value in (('Preset','preset'),('IR','ir'),('Bank','bank'),('Paket','sound')): p.kind_filter.addItem(text,value)

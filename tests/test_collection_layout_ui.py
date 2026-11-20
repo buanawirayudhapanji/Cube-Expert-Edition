@@ -19,6 +19,18 @@ class CollectionLayoutTests(unittest.TestCase):
         for _ in range(10):
             self.app.processEvents()
 
+    def test_collection_toolbar_fits_at_desktop_minimum_without_clipping_button_text(self):
+        ui = self.w.studio_ui
+        self.w.resize(1000, 680)
+        self.w.show()
+        ui.navigate(1)
+        self.settle()
+        page = ui.pages[1]
+        self.assertLessEqual(page.minimumSizeHint().width(), page.width())
+        for button in (self.panel.new_preset, ui.collection_create, self.panel.import_file):
+            self.assertTrue(ui.collection_listing.rect().contains(button.geometry()))
+            self.assertGreaterEqual(button.width(), button.fontMetrics().horizontalAdvance(button.text()) + 26)
+
     def test_default_cards_fill_horizontal_rows_and_keep_selection_on_resize_and_toggle(self):
         ui = self.w.studio_ui
         ui.set_reduced_motion(True)
