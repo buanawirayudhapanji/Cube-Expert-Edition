@@ -1,4 +1,4 @@
-"""Build an AppImage on Ubuntu 22.04 with data/source mounted separately."""
+"""Build an AppImage on Debian 12 / Python 3.12 with data/source mounted separately."""
 import argparse
 import os
 from pathlib import Path

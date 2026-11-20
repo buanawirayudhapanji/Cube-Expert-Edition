@@ -2,7 +2,7 @@
 
 ## Linux x86_64
 
-Paket dibangun pada Ubuntu 22.04, untuk sistem glibc 2.35 atau lebih baru. Python dan Qt sudah disertakan. Audio/MIDI tetap memakai layanan dan izin perangkat sistem.
+Paket dibangun pada Debian 12 / Python 3.12, untuk sistem glibc 2.36 atau lebih baru. Python dan Qt sudah disertakan. Audio/MIDI tetap memakai layanan dan izin perangkat sistem.
 
 - Jalankan file `CubeBabyMOD-0.1.0-linux-x86_64.AppImage` setelah diberi izin eksekusi.
 - Untuk memasang ke menu aplikasi, ekstrak `CubeBabyMOD-0.1.0-linux-x86_64-install.tar.gz`, lalu jalankan `./install.sh`. Tidak memakai sudo.
@@ -25,7 +25,7 @@ Paket tidak menyertakan koleksi, cadangan, konfigurasi lokal, log, kredensial at
 
 ## Membuat ulang paket
 
-Persyaratan build: Python 3.10+ pada OS target, dependency dalam `requirements-build.txt`, Inno Setup 6+ untuk Windows; atau Docker untuk Linux. PyInstaller harus dijalankan pada OS target.
+Persyaratan build: Python 3.12+ pada OS target, dependency dalam `requirements-build.txt`, Inno Setup 6+ untuk Windows; atau Docker untuk Linux. PyInstaller harus dijalankan pada OS target.
 
 Linux dengan Docker, dari root repo:
 

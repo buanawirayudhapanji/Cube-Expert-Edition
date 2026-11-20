@@ -104,7 +104,7 @@ def appimage(bundle, work, output, icon_dir, appimagetool=None):
                          'exec "$here/CubeBabyMOD.AppImage" --install-user\n', encoding='utf-8')
     installer.chmod(0o755)
     (stage / 'README.txt').write_text(
-        'CubeBabyMOD untuk Linux x86_64 (glibc 2.35 atau lebih baru).\n'
+        'CubeBabyMOD untuk Linux x86_64 (glibc 2.36 atau lebih baru).\n'
         'Jalankan ./install.sh untuk memasang ke akun pengguna dan menu aplikasi.\n'
         'Tanpa sudo dan tanpa instalasi Python. File AppImage juga dapat langsung dijalankan.\n'
         'Untuk menghapus aplikasi: jalankan AppImage dengan --uninstall-user.\n'
