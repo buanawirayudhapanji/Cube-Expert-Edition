@@ -1,0 +1,431 @@
+
+void __thiscall FUN_004af280(char *param_1,QListWidgetItem *param_2)
+
+{
+  byte bVar1;
+  int iVar2;
+  QListWidgetItem *pQVar3;
+  char *pcVar4;
+  QSize *pQVar5;
+  QLabel *pQVar6;
+  QSpinBox *pQVar7;
+  QComboBox *pQVar8;
+  QTextEdit *pQVar9;
+  uint uVar10;
+  QDialog *this;
+  int iVar11;
+  undefined1 *puVar12;
+  undefined1 auStack_11e [6];
+  QStringList *pQVar13;
+  QDialogButtonBox local_b0 [24];
+  QDialogButtonBox local_98 [24];
+  QDialog local_80 [24];
+  QDialog local_68 [24];
+  QFormLayout local_50 [16];
+  QFormLayout local_40 [16];
+  QComboBox *local_30;
+  QLabel *local_2c;
+  QSize local_28 [4];
+  QLabel *local_24;
+  int local_20 [2];
+  QTypedArrayData<unsigned_short> *local_18;
+  QTypedArrayData<unsigned_short> *local_14;
+  void *local_10;
+  undefined1 *puStack_c;
+  undefined4 local_8;
+  
+  local_8 = 0xffffffff;
+  puStack_c = &LAB_00530bb2;
+  local_10 = ExceptionList;
+  ExceptionList = &local_10;
+  local_20[1] = 0;
+  iVar11 = 0;
+  iVar2 = QListWidget::count(*(QListWidget **)(param_1 + 0x900));
+  if (0 < iVar2) {
+    do {
+      pQVar3 = QListWidget::item(*(QListWidget **)(param_1 + 0x900),iVar11);
+      if (pQVar3 == param_2) break;
+      iVar11 = iVar11 + 1;
+      iVar2 = QListWidget::count(*(QListWidget **)(param_1 + 0x900));
+    } while (iVar11 < iVar2);
+  }
+  local_20[0] = iVar11 * 5;
+  if (param_1[0xa38] == '\x03') {
+    bVar1 = param_1[0x6690];
+    iVar2 = QButtonGroup::checkedId(*(QButtonGroup **)(param_1 + 0x864));
+    pcVar4 = param_1 + (iVar11 + 0x21e) * 5 + iVar2 * 0x1a1 + (uint)bVar1 * 0x684;
+    QDialog::QDialog(local_68);
+    local_8 = 0;
+    QButtonGroup::checkedId(*(QButtonGroup **)(param_1 + 0x864));
+    pQVar5 = (QSize *)QSize::QSize(local_28,400,0xdc);
+    QWidget::setFixedSize((QWidget *)local_68,pQVar5);
+    QFormLayout::QFormLayout(local_40,(QWidget *)local_68);
+    local_8._0_1_ = 1;
+    QString::asprintf((char *)&local_18);
+    local_8._0_1_ = 2;
+    pQVar6 = operator_new(0x18);
+    local_8._0_1_ = 3;
+    local_2c = pQVar6;
+    QLabel::QLabel(pQVar6);
+    *(undefined ***)pQVar6 = QLabel::vftable;
+    *(undefined ***)(pQVar6 + 8) = QLabel::vftable;
+    local_8._0_1_ = 2;
+    QFormLayout::addRow(local_40,(QWidget *)pQVar6);
+    pQVar6 = operator_new(0x18);
+    local_8._0_1_ = 4;
+    local_2c = pQVar6;
+    local_14 = QString::fromAscii_helper("Channel: ",9);
+    local_8 = CONCAT31(local_8._1_3_,5);
+    local_20[1] = 1;
+    QLabel::QLabel(pQVar6);
+    *(undefined ***)pQVar6 = QLabel::vftable;
+    *(undefined ***)(pQVar6 + 8) = QLabel::vftable;
+    *(QLabel **)(param_1 + 0x66a8) = pQVar6;
+    local_8 = 2;
+    QString::~QString((QString *)&local_14);
+    pQVar7 = operator_new(0x18);
+    local_8._0_1_ = 7;
+    local_2c = (QLabel *)pQVar7;
+    QSpinBox::QSpinBox(pQVar7,(QWidget *)local_68);
+    *(undefined ***)pQVar7 = QSpinBox::vftable;
+    *(undefined ***)(pQVar7 + 8) = QSpinBox::vftable;
+    local_8._0_1_ = 2;
+    *(QSpinBox **)(param_1 + 0x66b8) = pQVar7;
+    QSpinBox::setRange(pQVar7,1,0x10);
+    QSpinBox::setValue(*(QSpinBox **)(param_1 + 0x66b8),(byte)pcVar4[1] + 1);
+    QFormLayout::addRow(local_40,*(QWidget **)(param_1 + 0x66a8),*(QWidget **)(param_1 + 0x66b8));
+    pQVar8 = operator_new(0x18);
+    local_8._0_1_ = 8;
+    local_2c = (QLabel *)pQVar8;
+    QComboBox::QComboBox(pQVar8,(QWidget *)local_68);
+    *(undefined ***)pQVar8 = QComboBox::vftable;
+    *(undefined ***)(pQVar8 + 8) = QComboBox::vftable;
+    local_8._0_1_ = 2;
+    QWidget::setFixedWidth((QWidget *)pQVar8,0xaa);
+    pQVar13 = (QStringList *)(param_1 + 0x66a0);
+    iVar2 = QComboBox::count(pQVar8);
+    QComboBox::insertItems(pQVar8,iVar2,pQVar13);
+    bVar1 = pcVar4[2];
+    if (bVar1 == 0) {
+      uVar10 = 0;
+    }
+    else {
+      uVar10 = 4;
+      if (bVar1 < 4) {
+        uVar10 = (uint)bVar1;
+      }
+    }
+    QComboBox::setCurrentIndex(pQVar8,uVar10);
+    QObject::connect((QObject *)&local_14,(char *)pQVar8,(QObject *)"2currentIndexChanged(int)",
+                     param_1,0x589514);
+    QMetaObject::Connection::~Connection((Connection *)&local_14);
+    pQVar6 = operator_new(0x18);
+    local_8._0_1_ = 9;
+    local_24 = pQVar6;
+    local_14 = QString::fromAscii_helper("Midi Type: ",0xb);
+    local_8 = CONCAT31(local_8._1_3_,10);
+    local_20[1] = 2;
+    QLabel::QLabel(pQVar6);
+    *(undefined ***)pQVar6 = QLabel::vftable;
+    *(undefined ***)(pQVar6 + 8) = QLabel::vftable;
+    local_8 = 0xb;
+    QFormLayout::addRow(local_40,(QWidget *)pQVar6,(QWidget *)local_2c);
+    local_8 = 2;
+    QString::~QString((QString *)&local_14);
+    pQVar6 = operator_new(0x18);
+    local_8._0_1_ = 0xc;
+    local_24 = pQVar6;
+    local_14 = QString::fromAscii_helper("Data1: ",7);
+    local_8 = CONCAT31(local_8._1_3_,0xd);
+    local_20[1] = 4;
+    QLabel::QLabel(pQVar6);
+    *(undefined ***)pQVar6 = QLabel::vftable;
+    *(undefined ***)(pQVar6 + 8) = QLabel::vftable;
+    *(QLabel **)(param_1 + 0x66ac) = pQVar6;
+    local_8 = 2;
+    QString::~QString((QString *)&local_14);
+    pQVar7 = operator_new(0x18);
+    local_8._0_1_ = 0xf;
+    local_24 = (QLabel *)pQVar7;
+    QSpinBox::QSpinBox(pQVar7,(QWidget *)local_68);
+    *(undefined ***)pQVar7 = QSpinBox::vftable;
+    *(undefined ***)(pQVar7 + 8) = QSpinBox::vftable;
+    local_8._0_1_ = 2;
+    *(QSpinBox **)(param_1 + 0x66bc) = pQVar7;
+    QSpinBox::setRange(pQVar7,0,0x7f);
+    QSpinBox::setValue(*(QSpinBox **)(param_1 + 0x66bc),(uint)(byte)pcVar4[3]);
+    QFormLayout::addRow(local_40,*(QWidget **)(param_1 + 0x66ac),*(QWidget **)(param_1 + 0x66bc));
+    pQVar6 = operator_new(0x18);
+    local_8._0_1_ = 0x10;
+    local_24 = pQVar6;
+    local_14 = QString::fromAscii_helper("Data2: ",7);
+    local_8 = CONCAT31(local_8._1_3_,0x11);
+    local_20[1] = 8;
+    QLabel::QLabel(pQVar6);
+    *(undefined ***)pQVar6 = QLabel::vftable;
+    *(undefined ***)(pQVar6 + 8) = QLabel::vftable;
+    *(QLabel **)(param_1 + 0x66b0) = pQVar6;
+    local_8 = 2;
+    QString::~QString((QString *)&local_14);
+    pQVar7 = operator_new(0x18);
+    local_8._0_1_ = 0x13;
+    local_24 = (QLabel *)pQVar7;
+    QSpinBox::QSpinBox(pQVar7,(QWidget *)local_68);
+    *(undefined ***)pQVar7 = QSpinBox::vftable;
+    *(undefined ***)(pQVar7 + 8) = QSpinBox::vftable;
+    local_8._0_1_ = 2;
+    *(QSpinBox **)(param_1 + 0x66c0) = pQVar7;
+    QSpinBox::setRange(pQVar7,0,0x7f);
+    QSpinBox::setValue(*(QSpinBox **)(param_1 + 0x66c0),(uint)(byte)pcVar4[4]);
+    QFormLayout::addRow(local_40,*(QWidget **)(param_1 + 0x66b0),*(QWidget **)(param_1 + 0x66c0));
+    pQVar6 = operator_new(0x18);
+    local_8._0_1_ = 0x14;
+    local_24 = pQVar6;
+    local_14 = QString::fromAscii_helper("Custom Midi Code: ",0x12);
+    local_8 = CONCAT31(local_8._1_3_,0x15);
+    local_20[1] = 0x10;
+    QLabel::QLabel(pQVar6);
+    *(undefined ***)pQVar6 = QLabel::vftable;
+    *(undefined ***)(pQVar6 + 8) = QLabel::vftable;
+    *(QLabel **)(param_1 + 0x66b4) = pQVar6;
+    local_8 = 2;
+    QString::~QString((QString *)&local_14);
+    pQVar9 = operator_new(0x18);
+    local_8._0_1_ = 0x17;
+    local_24 = (QLabel *)pQVar9;
+    QTextEdit::QTextEdit(pQVar9,(QWidget *)local_68);
+    *(undefined ***)pQVar9 = QTextEdit::vftable;
+    *(undefined ***)(pQVar9 + 8) = QTextEdit::vftable;
+    *(QTextEdit **)(param_1 + 0x66c4) = pQVar9;
+    local_8._0_1_ = 2;
+    QButtonGroup::checkedId(*(QButtonGroup **)(param_1 + 0x864));
+    FUN_004b4620();
+    local_8._0_1_ = 0x18;
+    QTextEdit::setText(*(QTextEdit **)(param_1 + 0x66c4),(QString *)&local_30);
+    QFormLayout::addRow(local_40,*(QWidget **)(param_1 + 0x66b4),*(QWidget **)(param_1 + 0x66c4));
+    QButtonGroup::checkedId(*(QButtonGroup **)(param_1 + 0x864));
+    FUN_004b44c0();
+    QDialogButtonBox::QDialogButtonBox(local_98);
+    local_8 = CONCAT31(local_8._1_3_,0x19);
+    QFormLayout::addRow(local_40,(QWidget *)local_98);
+    QObject::connect((QObject *)local_20,(char *)local_98,(QObject *)"2accepted()",(char *)local_68,
+                     0x5894e4);
+    QMetaObject::Connection::~Connection((Connection *)local_20);
+    QObject::connect((QObject *)local_20,(char *)local_98,(QObject *)"2rejected()",(char *)local_68,
+                     0x5894fc);
+    QMetaObject::Connection::~Connection((Connection *)local_20);
+    iVar2 = QDialog::exec(local_68);
+    if (iVar2 == 1) {
+      iVar2 = QSpinBox::value(*(QSpinBox **)(param_1 + 0x66b8));
+      pcVar4[1] = (char)iVar2 + -1;
+      *pcVar4 = '\x01';
+      iVar2 = QSpinBox::value(*(QSpinBox **)(param_1 + 0x66bc));
+      pcVar4[3] = (char)iVar2;
+      iVar2 = QSpinBox::value(*(QSpinBox **)(param_1 + 0x66c0));
+      pcVar4[4] = (char)iVar2;
+      iVar2 = QComboBox::currentIndex((QComboBox *)local_2c);
+      pcVar4[2] = (char)iVar2;
+      if ((char)iVar2 == '\x04') {
+        QButtonGroup::checkedId(*(QButtonGroup **)(param_1 + 0x864));
+        puVar12 = auStack_11e + -0xe;
+        QTextEdit::toPlainText(*(QTextEdit **)(param_1 + 0x66c4));
+        FUN_004bc640(puVar12);
+      }
+      FUN_004bc7e0();
+    }
+    QDialogButtonBox::~QDialogButtonBox(local_98);
+    QString::~QString((QString *)&local_30);
+    QString::~QString((QString *)&local_18);
+    QFormLayout::~QFormLayout(local_40);
+    this = local_68;
+  }
+  else {
+    pcVar4 = param_1 + (*(int *)(param_1 + 0x68cc) + (uint)(byte)param_1[0x6695] * 4) * 0x1a6 +
+                       0x3f03 + local_20[0];
+    QDialog::QDialog(local_80);
+    local_8 = 0x1a;
+    pQVar5 = (QSize *)QSize::QSize(local_28,400,0xdc);
+    QWidget::setFixedSize((QWidget *)local_80,pQVar5);
+    QFormLayout::QFormLayout(local_50,(QWidget *)local_80);
+    local_8._0_1_ = 0x1b;
+    QString::asprintf((char *)&local_14);
+    local_8._0_1_ = 0x1c;
+    pQVar6 = operator_new(0x18);
+    local_8._0_1_ = 0x1d;
+    local_24 = pQVar6;
+    QLabel::QLabel(pQVar6);
+    *(undefined ***)pQVar6 = QLabel::vftable;
+    *(undefined ***)(pQVar6 + 8) = QLabel::vftable;
+    local_8._0_1_ = 0x1c;
+    QFormLayout::addRow(local_50,(QWidget *)pQVar6);
+    pQVar6 = operator_new(0x18);
+    local_8._0_1_ = 0x1e;
+    local_24 = pQVar6;
+    local_18 = QString::fromAscii_helper("Channel: ",9);
+    local_8 = CONCAT31(local_8._1_3_,0x1f);
+    local_20[1] = 0x20;
+    QLabel::QLabel(pQVar6);
+    *(undefined ***)pQVar6 = QLabel::vftable;
+    *(undefined ***)(pQVar6 + 8) = QLabel::vftable;
+    *(QLabel **)(param_1 + 0x66a8) = pQVar6;
+    local_8 = 0x1c;
+    QString::~QString((QString *)&local_18);
+    pQVar7 = operator_new(0x18);
+    local_8._0_1_ = 0x21;
+    local_24 = (QLabel *)pQVar7;
+    QSpinBox::QSpinBox(pQVar7,(QWidget *)local_80);
+    *(undefined ***)pQVar7 = QSpinBox::vftable;
+    *(undefined ***)(pQVar7 + 8) = QSpinBox::vftable;
+    local_8._0_1_ = 0x1c;
+    *(QSpinBox **)(param_1 + 0x66b8) = pQVar7;
+    QSpinBox::setRange(pQVar7,1,0x10);
+    QSpinBox::setValue(*(QSpinBox **)(param_1 + 0x66b8),(byte)pcVar4[1] + 1);
+    QFormLayout::addRow(local_50,*(QWidget **)(param_1 + 0x66a8),*(QWidget **)(param_1 + 0x66b8));
+    pQVar8 = operator_new(0x18);
+    local_8._0_1_ = 0x22;
+    local_30 = pQVar8;
+    QComboBox::QComboBox(pQVar8,(QWidget *)local_80);
+    *(undefined ***)pQVar8 = QComboBox::vftable;
+    *(undefined ***)(pQVar8 + 8) = QComboBox::vftable;
+    local_8._0_1_ = 0x1c;
+    QWidget::setFixedWidth((QWidget *)pQVar8,0xaa);
+    pQVar13 = (QStringList *)(param_1 + 0x66a0);
+    iVar2 = QComboBox::count(pQVar8);
+    QComboBox::insertItems(pQVar8,iVar2,pQVar13);
+    bVar1 = pcVar4[2];
+    if (bVar1 == 0) {
+      uVar10 = 0;
+    }
+    else {
+      uVar10 = 4;
+      if (bVar1 < 4) {
+        uVar10 = (uint)bVar1;
+      }
+    }
+    QComboBox::setCurrentIndex(pQVar8,uVar10);
+    QObject::connect((QObject *)&local_18,(char *)pQVar8,(QObject *)"2currentIndexChanged(int)",
+                     param_1,0x589514);
+    QMetaObject::Connection::~Connection((Connection *)&local_18);
+    pQVar6 = operator_new(0x18);
+    local_8._0_1_ = 0x23;
+    local_24 = pQVar6;
+    local_18 = QString::fromAscii_helper("Midi Type: ",0xb);
+    local_8 = CONCAT31(local_8._1_3_,0x24);
+    local_20[1] = 0x40;
+    QLabel::QLabel(pQVar6);
+    *(undefined ***)pQVar6 = QLabel::vftable;
+    *(undefined ***)(pQVar6 + 8) = QLabel::vftable;
+    local_8 = 0x25;
+    QFormLayout::addRow(local_50,(QWidget *)pQVar6,(QWidget *)local_30);
+    local_8 = 0x1c;
+    QString::~QString((QString *)&local_18);
+    pQVar6 = operator_new(0x18);
+    local_8._0_1_ = 0x26;
+    local_24 = pQVar6;
+    local_18 = QString::fromAscii_helper("Data1: ",7);
+    local_8 = CONCAT31(local_8._1_3_,0x27);
+    local_20[1] = 0x80;
+    QLabel::QLabel(pQVar6);
+    *(undefined ***)pQVar6 = QLabel::vftable;
+    *(undefined ***)(pQVar6 + 8) = QLabel::vftable;
+    *(QLabel **)(param_1 + 0x66ac) = pQVar6;
+    local_8 = 0x1c;
+    QString::~QString((QString *)&local_18);
+    pQVar7 = operator_new(0x18);
+    local_8._0_1_ = 0x29;
+    local_24 = (QLabel *)pQVar7;
+    QSpinBox::QSpinBox(pQVar7,(QWidget *)local_80);
+    *(undefined ***)pQVar7 = QSpinBox::vftable;
+    *(undefined ***)(pQVar7 + 8) = QSpinBox::vftable;
+    local_8._0_1_ = 0x1c;
+    *(QSpinBox **)(param_1 + 0x66bc) = pQVar7;
+    QSpinBox::setRange(pQVar7,0,0x7f);
+    QSpinBox::setValue(*(QSpinBox **)(param_1 + 0x66bc),(uint)(byte)pcVar4[3]);
+    QFormLayout::addRow(local_50,*(QWidget **)(param_1 + 0x66ac),*(QWidget **)(param_1 + 0x66bc));
+    pQVar6 = operator_new(0x18);
+    local_8._0_1_ = 0x2a;
+    local_24 = pQVar6;
+    local_18 = QString::fromAscii_helper("Data2: ",7);
+    local_8 = CONCAT31(local_8._1_3_,0x2b);
+    local_20[1] = 0x100;
+    QLabel::QLabel(pQVar6);
+    *(undefined ***)pQVar6 = QLabel::vftable;
+    *(undefined ***)(pQVar6 + 8) = QLabel::vftable;
+    *(QLabel **)(param_1 + 0x66b0) = pQVar6;
+    local_8 = 0x1c;
+    QString::~QString((QString *)&local_18);
+    pQVar7 = operator_new(0x18);
+    local_8._0_1_ = 0x2d;
+    local_24 = (QLabel *)pQVar7;
+    QSpinBox::QSpinBox(pQVar7,(QWidget *)local_80);
+    *(undefined ***)pQVar7 = QSpinBox::vftable;
+    *(undefined ***)(pQVar7 + 8) = QSpinBox::vftable;
+    local_8._0_1_ = 0x1c;
+    *(QSpinBox **)(param_1 + 0x66c0) = pQVar7;
+    QSpinBox::setRange(pQVar7,0,0x7f);
+    QSpinBox::setValue(*(QSpinBox **)(param_1 + 0x66c0),(uint)(byte)pcVar4[4]);
+    QFormLayout::addRow(local_50,*(QWidget **)(param_1 + 0x66b0),*(QWidget **)(param_1 + 0x66c0));
+    pQVar6 = operator_new(0x18);
+    local_8._0_1_ = 0x2e;
+    local_24 = pQVar6;
+    local_18 = QString::fromAscii_helper("Custom Midi Code: ",0x12);
+    local_8 = CONCAT31(local_8._1_3_,0x2f);
+    local_20[1] = 0x200;
+    QLabel::QLabel(pQVar6);
+    *(undefined ***)pQVar6 = QLabel::vftable;
+    *(undefined ***)(pQVar6 + 8) = QLabel::vftable;
+    *(QLabel **)(param_1 + 0x66b4) = pQVar6;
+    local_8 = 0x1c;
+    QString::~QString((QString *)&local_18);
+    pQVar9 = operator_new(0x18);
+    local_8._0_1_ = 0x31;
+    local_24 = (QLabel *)pQVar9;
+    QTextEdit::QTextEdit(pQVar9,(QWidget *)local_80);
+    *(undefined ***)pQVar9 = QTextEdit::vftable;
+    *(undefined ***)(pQVar9 + 8) = QTextEdit::vftable;
+    local_8._0_1_ = 0x1c;
+    *(QTextEdit **)(param_1 + 0x66c4) = pQVar9;
+    FUN_004b4620();
+    local_8._0_1_ = 0x32;
+    QTextEdit::setText(*(QTextEdit **)(param_1 + 0x66c4),(QString *)&local_2c);
+    QFormLayout::addRow(local_50,*(QWidget **)(param_1 + 0x66b4),*(QWidget **)(param_1 + 0x66c4));
+    FUN_004b44c0();
+    QDialogButtonBox::QDialogButtonBox(local_b0);
+    local_8 = CONCAT31(local_8._1_3_,0x33);
+    QFormLayout::addRow(local_50,(QWidget *)local_b0);
+    QObject::connect((QObject *)local_20,(char *)local_b0,(QObject *)"2accepted()",(char *)local_80,
+                     0x5894e4);
+    QMetaObject::Connection::~Connection((Connection *)local_20);
+    QObject::connect((QObject *)local_20,(char *)local_b0,(QObject *)"2rejected()",(char *)local_80,
+                     0x5894fc);
+    QMetaObject::Connection::~Connection((Connection *)local_20);
+    iVar2 = QDialog::exec(local_80);
+    if (iVar2 == 1) {
+      iVar2 = QSpinBox::value(*(QSpinBox **)(param_1 + 0x66b8));
+      pcVar4[1] = (char)iVar2 + -1;
+      *pcVar4 = '\x01';
+      iVar2 = QSpinBox::value(*(QSpinBox **)(param_1 + 0x66bc));
+      pcVar4[3] = (char)iVar2;
+      iVar2 = QSpinBox::value(*(QSpinBox **)(param_1 + 0x66c0));
+      pcVar4[4] = (char)iVar2;
+      iVar2 = QComboBox::currentIndex(local_30);
+      pcVar4[2] = (char)iVar2;
+      if ((char)iVar2 == '\x04') {
+        puVar12 = auStack_11e + -0xe;
+        QTextEdit::toPlainText(*(QTextEdit **)(param_1 + 0x66c4));
+        FUN_004bc640(puVar12);
+      }
+      FUN_004bc7e0();
+    }
+    QDialogButtonBox::~QDialogButtonBox(local_b0);
+    QString::~QString((QString *)&local_2c);
+    QString::~QString((QString *)&local_14);
+    QFormLayout::~QFormLayout(local_50);
+    this = local_80;
+  }
+  QDialog::~QDialog(this);
+  ExceptionList = local_10;
+  return;
+}
+
+

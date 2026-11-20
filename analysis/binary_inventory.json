@@ -1,0 +1,366 @@
+{
+  "filename": "CubeSuite.exe",
+  "sha256": "0e0183fd6dc1b347534c9ce1e3677ecda2a6ae77fe3da8d6314d43c7c2cfd2e6",
+  "size": 3945984,
+  "machine": "0x014C",
+  "image_base": "0x00400000",
+  "sections": [
+    {
+      "name": ".text",
+      "rva": 4096,
+      "virtual_size": 1557656,
+      "raw_size": 1558016,
+      "offset": 1024
+    },
+    {
+      "name": ".rdata",
+      "rva": 1564672,
+      "virtual_size": 1922038,
+      "raw_size": 1922048,
+      "offset": 1559040
+    },
+    {
+      "name": ".data",
+      "rva": 3489792,
+      "virtual_size": 138624,
+      "raw_size": 28160,
+      "offset": 3481088
+    },
+    {
+      "name": ".rsrc",
+      "rva": 3629056,
+      "virtual_size": 68528,
+      "raw_size": 68608,
+      "offset": 3509248
+    },
+    {
+      "name": ".reloc",
+      "rva": 3698688,
+      "virtual_size": 368128,
+      "raw_size": 368128,
+      "offset": 3577856
+    }
+  ],
+  "strings": [
+    {
+      "offset": 1570640,
+      "address": "0x00580D50",
+      "text": "CubeSuite V2.8.10"
+    },
+    {
+      "offset": 1571192,
+      "address": "0x00580F78",
+      "text": "RtMidi Input Client"
+    },
+    {
+      "offset": 1571212,
+      "address": "0x00580F8C",
+      "text": "RtMidi Output Client"
+    },
+    {
+      "offset": 1571287,
+      "address": "0x00580FD7",
+      "text": "?RtMidi Input"
+    },
+    {
+      "offset": 1571304,
+      "address": "0x00580FE8",
+      "text": "RtMidi Output"
+    },
+    {
+      "offset": 1571732,
+      "address": "0x00581194",
+      "text": ":/LooperSuiteQT/CubeBaby"
+    },
+    {
+      "offset": 1573285,
+      "address": "0x005817A5",
+      "text": "RtMidiIn: no compiled support for specified API argument!"
+    },
+    {
+      "offset": 1573348,
+      "address": "0x005817E4",
+      "text": "RtMidiIn: no compiled API support found ... critical error!!"
+    },
+    {
+      "offset": 1573413,
+      "address": "0x00581825",
+      "text": "RtMidiOut: no compiled support for specified API argument!"
+    },
+    {
+      "offset": 1573476,
+      "address": "0x00581864",
+      "text": "RtMidiOut: no compiled API support found ... critical error!!"
+    },
+    {
+      "offset": 1573600,
+      "address": "0x005818E0",
+      "text": "RtMidiIn::setCallback: callback function value is invalid!"
+    },
+    {
+      "offset": 1573665,
+      "address": "0x00581921",
+      "text": "RtMidiIn::midiInputCallback: error sending sysex to Midi device!!"
+    },
+    {
+      "offset": 1573737,
+      "address": "0x00581969",
+      "text": "RtMidiIn: message queue limit reached!!"
+    },
+    {
+      "offset": 1575248,
+      "address": "0x00581F50",
+      "text": "MidiOutWinMM::sendMessage: error preparing sysex header."
+    },
+    {
+      "offset": 1575308,
+      "address": "0x00581F8C",
+      "text": "MidiOutWinMM::sendMessage: error sending sysex message."
+    },
+    {
+      "offset": 1575368,
+      "address": "0x00581FC8",
+      "text": "MidiOutWinMM::sendMessage: message size is greater than 3 bytes (and not sysex)!"
+    },
+    {
+      "offset": 1583740,
+      "address": "0x0058407C",
+      "text": "CubeBaby Bass"
+    },
+    {
+      "offset": 1584396,
+      "address": "0x0058430C",
+      "text": "1OnSaveEffect()"
+    },
+    {
+      "offset": 1584452,
+      "address": "0x00584344",
+      "text": "1OnOpenIRFile()"
+    },
+    {
+      "offset": 1584480,
+      "address": "0x00584360",
+      "text": "1OnResetSound()"
+    },
+    {
+      "offset": 1584496,
+      "address": "0x00584370",
+      "text": "1OnFactoryIR()"
+    },
+    {
+      "offset": 1585512,
+      "address": "0x00584768",
+      "text": "CubeBabyCA"
+    },
+    {
+      "offset": 1585884,
+      "address": "0x005848DC",
+      "text": "CubeBabyJun"
+    },
+    {
+      "offset": 1586628,
+      "address": "0x00584BC4",
+      "text": "CubeBaby"
+    },
+    {
+      "offset": 3497458,
+      "address": "0x00757FF2",
+      "text": "OnOpenIRFile"
+    },
+    {
+      "offset": 3497478,
+      "address": "0x00758006",
+      "text": "OnResetSound"
+    },
+    {
+      "offset": 3497491,
+      "address": "0x00758013",
+      "text": "OnFactoryIR"
+    },
+    {
+      "offset": 3497503,
+      "address": "0x0075801F",
+      "text": "OnSaveEffect"
+    },
+    {
+      "offset": 3500616,
+      "address": "0x00758C48",
+      "text": "OnOpenIRFile"
+    },
+    {
+      "offset": 3500637,
+      "address": "0x00758C5D",
+      "text": "OnResetSound"
+    },
+    {
+      "offset": 3500650,
+      "address": "0x00758C6A",
+      "text": "OnFactoryIR"
+    },
+    {
+      "offset": 3500729,
+      "address": "0x00758CB9",
+      "text": "OnSaveEffect"
+    },
+    {
+      "offset": 3500989,
+      "address": "0x00758DBD",
+      "text": "OnOpenIRFile"
+    },
+    {
+      "offset": 3501022,
+      "address": "0x00758DDE",
+      "text": "OnResetSound"
+    },
+    {
+      "offset": 3501035,
+      "address": "0x00758DEB",
+      "text": "OnFactoryIR"
+    },
+    {
+      "offset": 3502492,
+      "address": "0x0075939C",
+      "text": "CCubeBabyJunIREditDlg"
+    },
+    {
+      "offset": 3502582,
+      "address": "0x007593F6",
+      "text": "OnOpenIRFile"
+    },
+    {
+      "offset": 3502602,
+      "address": "0x0075940A",
+      "text": "OnResetSound"
+    },
+    {
+      "offset": 3502615,
+      "address": "0x00759417",
+      "text": "OnFactoryIR"
+    },
+    {
+      "offset": 3502627,
+      "address": "0x00759423",
+      "text": "OnSaveEffect"
+    },
+    {
+      "offset": 3503020,
+      "address": "0x007595AC",
+      "text": "CCubeBabyCAIREditDlg"
+    },
+    {
+      "offset": 3503109,
+      "address": "0x00759605",
+      "text": "OnOpenIRFile"
+    },
+    {
+      "offset": 3503129,
+      "address": "0x00759619",
+      "text": "OnResetSound"
+    },
+    {
+      "offset": 3503142,
+      "address": "0x00759626",
+      "text": "OnFactoryIR"
+    },
+    {
+      "offset": 3503154,
+      "address": "0x00759632",
+      "text": "OnSaveEffect"
+    },
+    {
+      "offset": 3503420,
+      "address": "0x0075973C",
+      "text": "CCubeBabyIREditDlg"
+    },
+    {
+      "offset": 3503439,
+      "address": "0x0075974F",
+      "text": "OnOpenIRFile"
+    },
+    {
+      "offset": 3503460,
+      "address": "0x00759764",
+      "text": "OnResetSound"
+    },
+    {
+      "offset": 3503473,
+      "address": "0x00759771",
+      "text": "OnFactoryIR"
+    },
+    {
+      "offset": 3503719,
+      "address": "0x00759867",
+      "text": "OnOpenIRFile"
+    },
+    {
+      "offset": 3503740,
+      "address": "0x0075987C",
+      "text": "OnFactoryIR"
+    },
+    {
+      "offset": 3504256,
+      "address": "0x00759A80",
+      "text": "OnOpenIRFile"
+    },
+    {
+      "offset": 3504276,
+      "address": "0x00759A94",
+      "text": "OnResetSound"
+    },
+    {
+      "offset": 3504289,
+      "address": "0x00759AA1",
+      "text": "OnFactoryIR"
+    },
+    {
+      "offset": 3504301,
+      "address": "0x00759AAD",
+      "text": "OnSaveEffect"
+    },
+    {
+      "offset": 3504560,
+      "address": "0x00759BB0",
+      "text": ".?AVRtMidiError@@"
+    },
+    {
+      "offset": 3505252,
+      "address": "0x00759E64",
+      "text": ".?AV?$_Ref_count@VRtMidiIn@@@std@@"
+    },
+    {
+      "offset": 3505296,
+      "address": "0x00759E90",
+      "text": ".?AV?$_Ref_count@VRtMidiOut@@@std@@"
+    },
+    {
+      "offset": 3505872,
+      "address": "0x0075A0D0",
+      "text": ".?AVRtMidi@@"
+    },
+    {
+      "offset": 3505896,
+      "address": "0x0075A0E8",
+      "text": ".?AVRtMidiIn@@"
+    },
+    {
+      "offset": 3505920,
+      "address": "0x0075A100",
+      "text": ".?AVRtMidiOut@@"
+    },
+    {
+      "offset": 3506872,
+      "address": "0x0075A4B8",
+      "text": ".?AVCCubeBabyCAIREditDlg@@"
+    },
+    {
+      "offset": 3506908,
+      "address": "0x0075A4DC",
+      "text": ".?AVCCubeBabyJunIREditDlg@@"
+    },
+    {
+      "offset": 3506944,
+      "address": "0x0075A500",
+      "text": ".?AVCCubeBabyIREditDlg@@"
+    }
+  ]
+}

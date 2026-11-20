@@ -1,0 +1,126 @@
+
+void __thiscall FUN_004a8f30(int param_1,QWidget *param_2)
+
+{
+  QWidget *pQVar1;
+  QAbstractButton *pQVar2;
+  QComboBox *pQVar3;
+  QLabel *this;
+  QString *pQVar4;
+  QString local_1c [4];
+  QString local_18 [4];
+  int local_14;
+  void *local_10;
+  undefined1 *puStack_c;
+  undefined4 local_8;
+  
+  local_8 = 0xffffffff;
+  puStack_c = &LAB_0052d94e;
+  local_10 = ExceptionList;
+  ExceptionList = &local_10;
+  local_14 = param_1;
+  pQVar4 = (QString *)QCoreApplication::translate((char *)local_18,"DigAmp","Dig-Amp",0);
+  local_8 = 0;
+  QWidget::setWindowTitle(param_2,pQVar4);
+  QString::~QString(local_18);
+  pQVar1 = *(QWidget **)(param_1 + 4);
+  pQVar4 = (QString *)QString::QString((QString *)&param_2);
+  local_8 = 1;
+  QWidget::setToolTip(pQVar1,pQVar4);
+  local_8 = 0xffffffff;
+  QString::~QString((QString *)&param_2);
+  pQVar2 = *(QAbstractButton **)(param_1 + 4);
+  pQVar4 = (QString *)
+           QCoreApplication::translate((char *)&param_2,"DigAmp","Import Amp Data To Device",0);
+  local_8 = 2;
+  QAbstractButton::setText(pQVar2,pQVar4);
+  local_8 = 0xffffffff;
+  QString::~QString((QString *)&param_2);
+  pQVar3 = *(QComboBox **)(local_14 + 8);
+  pQVar4 = (QString *)QCoreApplication::translate((char *)&param_2,"DigAmp","1",0);
+  local_8 = 3;
+  QComboBox::setItemText(pQVar3,0,pQVar4);
+  local_8 = 0xffffffff;
+  QString::~QString((QString *)&param_2);
+  pQVar3 = *(QComboBox **)(local_14 + 8);
+  pQVar4 = (QString *)QCoreApplication::translate((char *)&param_2,"DigAmp","2",0);
+  local_8 = 4;
+  QComboBox::setItemText(pQVar3,1,pQVar4);
+  local_8 = 0xffffffff;
+  QString::~QString((QString *)&param_2);
+  pQVar3 = *(QComboBox **)(local_14 + 8);
+  pQVar4 = (QString *)QCoreApplication::translate((char *)&param_2,"DigAmp","3",0);
+  local_8 = 5;
+  QComboBox::setItemText(pQVar3,2,pQVar4);
+  local_8 = 0xffffffff;
+  QString::~QString((QString *)&param_2);
+  pQVar3 = *(QComboBox **)(local_14 + 8);
+  pQVar4 = (QString *)QCoreApplication::translate((char *)&param_2,"DigAmp","4",0);
+  local_8 = 6;
+  QComboBox::setItemText(pQVar3,3,pQVar4);
+  local_8 = 0xffffffff;
+  QString::~QString((QString *)&param_2);
+  pQVar3 = *(QComboBox **)(local_14 + 8);
+  pQVar4 = (QString *)QCoreApplication::translate((char *)&param_2,"DigAmp","5",0);
+  local_8 = 7;
+  QComboBox::setItemText(pQVar3,4,pQVar4);
+  local_8 = 0xffffffff;
+  QString::~QString((QString *)&param_2);
+  pQVar3 = *(QComboBox **)(local_14 + 8);
+  pQVar4 = (QString *)QCoreApplication::translate((char *)&param_2,"DigAmp","6",0);
+  local_8 = 8;
+  QComboBox::setItemText(pQVar3,5,pQVar4);
+  local_8 = 0xffffffff;
+  QString::~QString((QString *)&param_2);
+  pQVar3 = *(QComboBox **)(local_14 + 8);
+  pQVar4 = (QString *)QCoreApplication::translate((char *)&param_2,"DigAmp","7",0);
+  local_8 = 9;
+  QComboBox::setItemText(pQVar3,6,pQVar4);
+  local_8 = 0xffffffff;
+  QString::~QString((QString *)&param_2);
+  pQVar3 = *(QComboBox **)(local_14 + 8);
+  pQVar4 = (QString *)QCoreApplication::translate((char *)&param_2,"DigAmp","8",0);
+  local_8 = 10;
+  QComboBox::setItemText(pQVar3,7,pQVar4);
+  local_8 = 0xffffffff;
+  QString::~QString((QString *)&param_2);
+  pQVar3 = *(QComboBox **)(local_14 + 8);
+  pQVar4 = (QString *)QCoreApplication::translate((char *)&param_2,"DigAmp","9",0);
+  local_8 = 0xb;
+  QComboBox::setItemText(pQVar3,8,pQVar4);
+  QString::~QString((QString *)&param_2);
+  pQVar1 = *(QWidget **)(local_14 + 0xc);
+  pQVar4 = (QString *)QString::QString((QString *)&param_2);
+  local_8 = 0xc;
+  QWidget::setToolTip(pQVar1,pQVar4);
+  local_8 = 0xffffffff;
+  QString::~QString((QString *)&param_2);
+  pQVar2 = *(QAbstractButton **)(local_14 + 0xc);
+  pQVar4 = (QString *)
+           QCoreApplication::translate((char *)&param_2,"DigAmp","Restore factory Amp Data",0);
+  local_8 = 0xd;
+  QAbstractButton::setText(pQVar2,pQVar4);
+  QString::~QString((QString *)&param_2);
+  pQVar1 = *(QWidget **)(local_14 + 0x14);
+  pQVar4 = (QString *)QString::QString((QString *)&param_2);
+  local_8 = 0xe;
+  QWidget::setToolTip(pQVar1,pQVar4);
+  local_8 = 0xffffffff;
+  QString::~QString((QString *)&param_2);
+  pQVar2 = *(QAbstractButton **)(local_14 + 0x14);
+  pQVar4 = (QString *)QCoreApplication::translate((char *)&param_2,"DigAmp","Open Amp File",0);
+  local_8 = 0xf;
+  QAbstractButton::setText(pQVar2,pQVar4);
+  local_8 = 0xffffffff;
+  QString::~QString((QString *)&param_2);
+  this = *(QLabel **)(local_14 + 0x18);
+  pQVar4 = (QString *)
+           QCoreApplication::translate((char *)local_1c,"DigAmp","Select a file to listen to",0);
+  local_8 = 0x10;
+  QLabel::setText(this,pQVar4);
+  QString::~QString(local_1c);
+  ExceptionList = local_10;
+  return;
+}
+
+

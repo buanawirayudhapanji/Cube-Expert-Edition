@@ -1,0 +1,16 @@
+{
+  "device_code": 20230,
+  "name": "Cube Baby",
+  "entry_address": "0x754f1c",
+  "feature_bits_raw": "0x80",
+  "storage_descriptor_address": "0x7548d0",
+  "storage_region": 0,
+  "sector_size": 4096,
+  "storage_base": 0,
+  "storage_size": 524288,
+  "ir_slot_count": 8,
+  "ir_slot_stride": 4096,
+  "ir_slot_data_size": 2056,
+  "max_raw_read_packet": 128,
+  "max_read_data_chunk": 113
+}

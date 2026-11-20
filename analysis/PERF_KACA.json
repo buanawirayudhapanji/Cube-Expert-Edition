@@ -1,0 +1,9 @@
+{
+  "environment": "Qt offscreen, data meter simulasi; bukan FPS layar fisik",
+  "seconds": 2.007,
+  "glass": "full",
+  "paint_calls": 192,
+  "visible_fill_changes": 115,
+  "fill_updates_per_second": 57.3,
+  "ambient_cache_generations": 2
+}

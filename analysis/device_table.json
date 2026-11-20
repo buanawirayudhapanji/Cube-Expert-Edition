@@ -1,0 +1,212 @@
+[
+  {
+    "index": 0,
+    "device_code": 4294967295,
+    "name": "Unknown Device"
+  },
+  {
+    "index": 1,
+    "device_code": 10014,
+    "name": "Cube Sugar"
+  },
+  {
+    "index": 2,
+    "device_code": 10015,
+    "name": "Cube Sugar"
+  },
+  {
+    "index": 3,
+    "device_code": 10019,
+    "name": "Cube Magic"
+  },
+  {
+    "index": 4,
+    "device_code": 10021,
+    "name": "Looper ProH"
+  },
+  {
+    "index": 5,
+    "device_code": 10022,
+    "name": "Looper ProA"
+  },
+  {
+    "index": 6,
+    "device_code": 10023,
+    "name": "Looper ProAN"
+  },
+  {
+    "index": 7,
+    "device_code": 10024,
+    "name": "Looper ProHN"
+  },
+  {
+    "index": 8,
+    "device_code": 10025,
+    "name": "Cube Sugar A"
+  },
+  {
+    "index": 9,
+    "device_code": 10002,
+    "name": "Looper Mini"
+  },
+  {
+    "index": 10,
+    "device_code": 10026,
+    "name": "Looper Mini MTP"
+  },
+  {
+    "index": 11,
+    "device_code": 10027,
+    "name": "Looper Mini MTP64"
+  },
+  {
+    "index": 12,
+    "device_code": 10045,
+    "name": "Looper Mini MTP64"
+  },
+  {
+    "index": 13,
+    "device_code": 10028,
+    "name": "Looper Mini MTP128"
+  },
+  {
+    "index": 14,
+    "device_code": 10029,
+    "name": "Looper ProHN2"
+  },
+  {
+    "index": 15,
+    "device_code": 10030,
+    "name": "Cube Baby"
+  },
+  {
+    "index": 16,
+    "device_code": 10130,
+    "name": "Cube Baby"
+  },
+  {
+    "index": 17,
+    "device_code": 20130,
+    "name": "Cube Baby"
+  },
+  {
+    "index": 18,
+    "device_code": 20030,
+    "name": "Cube Baby"
+  },
+  {
+    "index": 19,
+    "device_code": 20230,
+    "name": "Cube Baby"
+  },
+  {
+    "index": 20,
+    "device_code": 20233,
+    "name": "Cube Baby"
+  },
+  {
+    "index": 21,
+    "device_code": 30030,
+    "name": "PANDORA mini FX"
+  },
+  {
+    "index": 22,
+    "device_code": 10031,
+    "name": "H8"
+  },
+  {
+    "index": 23,
+    "device_code": 20031,
+    "name": "H8"
+  },
+  {
+    "index": 24,
+    "device_code": 30031,
+    "name": "Pony Mustang"
+  },
+  {
+    "index": 25,
+    "device_code": 10035,
+    "name": "IR CAB"
+  },
+  {
+    "index": 26,
+    "device_code": 10033,
+    "name": "Looper NEW"
+  },
+  {
+    "index": 27,
+    "device_code": 10033,
+    "name": "Looper NEW"
+  },
+  {
+    "index": 28,
+    "device_code": 10425,
+    "name": "Looper"
+  },
+  {
+    "index": 29,
+    "device_code": 10525,
+    "name": "Looper Pro"
+  },
+  {
+    "index": 30,
+    "device_code": 10526,
+    "name": "Looper Pro"
+  },
+  {
+    "index": 31,
+    "device_code": 10529,
+    "name": "Looper New"
+  },
+  {
+    "index": 32,
+    "device_code": 10527,
+    "name": "Looper Auto"
+  },
+  {
+    "index": 33,
+    "device_code": 10625,
+    "name": "Looper Auto"
+  },
+  {
+    "index": 34,
+    "device_code": 131056,
+    "name": "Looper Mini MTPm"
+  },
+  {
+    "index": 35,
+    "device_code": 10626,
+    "name": "Drum"
+  },
+  {
+    "index": 36,
+    "device_code": 10725,
+    "name": "IR Box"
+  },
+  {
+    "index": 37,
+    "device_code": 20430,
+    "name": "Cube Baby AC"
+  },
+  {
+    "index": 38,
+    "device_code": 20530,
+    "name": "Cube Baby Bass"
+  },
+  {
+    "index": 39,
+    "device_code": 30431,
+    "name": "Cube Baby Bass"
+  },
+  {
+    "index": 40,
+    "device_code": 10827,
+    "name": "IR CAB"
+  },
+  {
+    "index": 41,
+    "device_code": 40030,
+    "name": "Speaker"
+  }
+]

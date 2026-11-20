@@ -1,0 +1,54 @@
+# Cache dan bytecode Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environment dan konfigurasi lokal
+.venv/
+venv/
+env/
+.env
+.env.*
+!.env.example
+!.env.sample
+!.env.template
+
+# Build, paket, dan laporan coverage
+build/
+dist/
+*.egg-info/
+*.egg
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+/CubeBabyMOD-*.zip
+
+# Data pengguna dan hasil diagnostik pedal
+/backups/
+/library_data/
+*.log
+*.pcap
+*.pcapng
+cubebaby-midi*.json
+
+# Distribusi CubeSuite asli (bukan source aplikasi ini)
+/CubeSuite/
+
+# Konfigurasi agen, kredensial, dan editor lokal
+/.agents/
+/.codex/
+/.aws/
+/AGENTS.md
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Metadata sistem operasi
+.DS_Store
+Thumbs.db
+Desktop.ini

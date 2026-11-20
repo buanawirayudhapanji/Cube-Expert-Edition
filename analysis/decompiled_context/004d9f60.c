@@ -1,0 +1,94 @@
+
+void __thiscall FUN_004d9f60(int param_1,QWidget *param_2)
+
+{
+  QComboBox *pQVar1;
+  QAbstractButton *pQVar2;
+  QString *pQVar3;
+  QString local_1c [4];
+  QString local_18 [4];
+  int local_14;
+  void *local_10;
+  undefined1 *puStack_c;
+  undefined4 local_8;
+  
+  local_8 = 0xffffffff;
+  puStack_c = &LAB_0052b6e1;
+  local_10 = ExceptionList;
+  ExceptionList = &local_10;
+  local_14 = param_1;
+  pQVar3 = (QString *)QCoreApplication::translate((char *)local_18,"EditDrum","CubeSugarSuite",0);
+  local_8 = 0;
+  QWidget::setWindowTitle(param_2,pQVar3);
+  local_8 = 0xffffffff;
+  QString::~QString(local_18);
+  pQVar1 = *(QComboBox **)(param_1 + 8);
+  pQVar3 = (QString *)QCoreApplication::translate((char *)&param_2,"EditDrum","Step ON/OFF",0);
+  local_8 = 1;
+  QComboBox::setItemText(pQVar1,0,pQVar3);
+  local_8 = 0xffffffff;
+  QString::~QString((QString *)&param_2);
+  pQVar1 = *(QComboBox **)(local_14 + 8);
+  pQVar3 = (QString *)QCoreApplication::translate((char *)&param_2,"EditDrum","Velocity",0);
+  local_8 = 2;
+  QComboBox::setItemText(pQVar1,1,pQVar3);
+  local_8 = 0xffffffff;
+  QString::~QString((QString *)&param_2);
+  pQVar1 = *(QComboBox **)(local_14 + 0xc);
+  pQVar3 = (QString *)QCoreApplication::translate((char *)&param_2,"EditDrum","2 Bars",0);
+  local_8 = 3;
+  QComboBox::setItemText(pQVar1,0,pQVar3);
+  local_8 = 0xffffffff;
+  QString::~QString((QString *)&param_2);
+  pQVar1 = *(QComboBox **)(local_14 + 0xc);
+  pQVar3 = (QString *)QCoreApplication::translate((char *)&param_2,"EditDrum","3 Bars",0);
+  local_8 = 4;
+  QComboBox::setItemText(pQVar1,1,pQVar3);
+  local_8 = 0xffffffff;
+  QString::~QString((QString *)&param_2);
+  pQVar1 = *(QComboBox **)(local_14 + 0xc);
+  pQVar3 = (QString *)QCoreApplication::translate((char *)&param_2,"EditDrum","4 Bars",0);
+  local_8 = 5;
+  QComboBox::setItemText(pQVar1,2,pQVar3);
+  local_8 = 0xffffffff;
+  QString::~QString((QString *)&param_2);
+  pQVar1 = *(QComboBox **)(local_14 + 0xc);
+  pQVar3 = (QString *)QCoreApplication::translate((char *)&param_2,"EditDrum","5 Bars",0);
+  local_8 = 6;
+  QComboBox::setItemText(pQVar1,3,pQVar3);
+  local_8 = 0xffffffff;
+  QString::~QString((QString *)&param_2);
+  pQVar1 = *(QComboBox **)(local_14 + 0xc);
+  pQVar3 = (QString *)QCoreApplication::translate((char *)&param_2,"EditDrum","6 Bars",0);
+  local_8 = 7;
+  QComboBox::setItemText(pQVar1,4,pQVar3);
+  local_8 = 0xffffffff;
+  QString::~QString((QString *)&param_2);
+  pQVar1 = *(QComboBox **)(local_14 + 0xc);
+  pQVar3 = (QString *)QCoreApplication::translate((char *)&param_2,"EditDrum","7 Bars",0);
+  local_8 = 8;
+  QComboBox::setItemText(pQVar1,5,pQVar3);
+  local_8 = 0xffffffff;
+  QString::~QString((QString *)&param_2);
+  pQVar1 = *(QComboBox **)(local_14 + 0xc);
+  pQVar3 = (QString *)QCoreApplication::translate((char *)&param_2,"EditDrum","8 Bars",0);
+  local_8 = 9;
+  QComboBox::setItemText(pQVar1,6,pQVar3);
+  local_8 = 0xffffffff;
+  QString::~QString((QString *)&param_2);
+  pQVar2 = *(QAbstractButton **)(local_14 + 0x10);
+  pQVar3 = (QString *)QCoreApplication::translate((char *)&param_2,"EditDrum","Play",0);
+  local_8 = 10;
+  QAbstractButton::setText(pQVar2,pQVar3);
+  local_8 = 0xffffffff;
+  QString::~QString((QString *)&param_2);
+  pQVar2 = *(QAbstractButton **)(local_14 + 0x18);
+  pQVar3 = (QString *)QCoreApplication::translate((char *)local_1c,"EditDrum","X",0);
+  local_8 = 0xb;
+  QAbstractButton::setText(pQVar2,pQVar3);
+  QString::~QString(local_1c);
+  ExceptionList = local_10;
+  return;
+}
+
+
