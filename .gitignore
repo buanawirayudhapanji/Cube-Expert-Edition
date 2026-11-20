@@ -7,6 +7,7 @@ __pycache__/
 
 # Virtual environment dan konfigurasi lokal
 .venv/
+.venv-build/
 venv/
 env/
 .env

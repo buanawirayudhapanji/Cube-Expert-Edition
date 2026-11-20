@@ -1,0 +1,78 @@
+name: Build Linux and Windows installers
+on:
+  workflow_dispatch:
+  push:
+    branches: ['codex/installers-*']
+permissions:
+  contents: read
+jobs:
+  linux:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v7
+      - name: Build Linux AppImage on Debian 12 / Python 3.12
+        run: python3 tools/build_linux_container.py
+      - name: Upload Linux packages
+        uses: actions/upload-artifact@v7
+        with:
+          name: CubeBabyMOD-linux-x86_64
+          path: dist/*
+          if-no-files-found: error
+          compression-level: 0
+  windows:
+    runs-on: windows-latest
+    timeout-minutes: 35
+    env:
+      QT_QPA_PLATFORM: offscreen
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: requirements-build.txt
+      - name: Install build dependencies
+        run: python -m pip install -r requirements-build.txt
+      - name: Configure fonts for offscreen checks
+        shell: pwsh
+        run: '"QT_QPA_FONTDIR=$env:WINDIR\Fonts" >> $env:GITHUB_ENV'
+      - name: Capture Windows layout metrics
+        run: python tools/layout_diagnostics.py > layout-diagnostics.txt
+      - name: Test source on Windows
+        timeout-minutes: 8
+        run: python -u tools/run_tests.py --timeout 60
+      - name: Ensure Inno Setup is available
+        shell: pwsh
+        run: |
+          $compilers = Get-ChildItem "${env:ProgramFiles(x86)}\Inno Setup *\ISCC.exe" -ErrorAction SilentlyContinue
+          if (-not $compilers) {
+            choco install innosetup --yes --no-progress
+            if ($LASTEXITCODE -ne 0) { throw 'Instalasi Inno Setup gagal.' }
+          }
+      - name: Build Windows Setup
+        run: python tools/build_installer.py --format windows
+      - name: Verify installation and uninstall
+        shell: pwsh
+        run: ./tools/verify_windows_installer.ps1
+      - name: Upload Windows installer
+        uses: actions/upload-artifact@v7
+        with:
+          name: CubeBabyMOD-windows-x64
+          path: dist/*
+          if-no-files-found: error
+          compression-level: 0
+      - name: Diagnose Windows layout failure
+        if: failure()
+        shell: pwsh
+        run: python tools/layout_diagnostics.py *> layout-diagnostics.txt
+      - name: Upload failed checks
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: Windows-build-diagnostics
+          path: |
+            dist/*.json
+            layout-diagnostics.txt
+            build/package/pyinstaller/**/warn-*.txt
+          if-no-files-found: ignore

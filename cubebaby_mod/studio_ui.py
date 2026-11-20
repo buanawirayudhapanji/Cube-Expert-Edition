@@ -6,7 +6,7 @@ from PySide6.QtCore import Qt, QSize, QTimer, QCoreApplication, QSignalBlocker, 
 from PySide6.QtGui import QFont, QFontDatabase, QKeySequence, QShortcut, QIcon, QPixmap, QPainter, QPen, QColor
 from PySide6.QtWidgets import (
     QWidget, QFrame, QLabel, QPushButton, QVBoxLayout, QHBoxLayout, QGridLayout, QBoxLayout,
-    QTabWidget, QStackedWidget, QComboBox, QProgressBar, QToolButton, QInputDialog, QSizePolicy, QMenu, QWidgetAction, QListView, QAbstractItemView, QGraphicsOpacityEffect, QButtonGroup, QLineEdit, QAbstractSpinBox, QCheckBox, QMessageBox, QApplication, QProxyStyle, QStyle, QDialog,
+    QTabWidget, QStackedWidget, QComboBox, QProgressBar, QToolButton, QInputDialog, QSizePolicy, QMenu, QWidgetAction, QListView, QAbstractItemView, QGraphicsOpacityEffect, QButtonGroup, QLineEdit, QAbstractSpinBox, QCheckBox, QMessageBox, QApplication, QProxyStyle, QStyle, QDialog, QStyleFactory,
 )
 
 from .adaptive_ui import AdaptiveViewport, ResizeObserver
@@ -98,7 +98,7 @@ class StudioUI:
         self.restoring_preferences = True
         app = QApplication.instance()
         if not hasattr(app, '_cubebaby_tooltip_style'):
-            app._cubebaby_tooltip_style = TooltipStyle()
+            app._cubebaby_tooltip_style = TooltipStyle(QStyleFactory.create('Fusion'))
             app.setStyle(app._cubebaby_tooltip_style)
         old = owner.takeCentralWidget()
         root = AmbientBackground(); self.ambient = root; self.theme.root = root; root.setObjectName('shell'); owner.setCentralWidget(root)
@@ -285,7 +285,8 @@ class StudioUI:
         for widget in (owner.device_label, owner.ir_status, owner.edit_status):
             widget.setStyleSheet(''); widget.setObjectName('muted')
         families = QFontDatabase.families()
-        owner.setFont(type_font('body', QFont('Inter' if 'Inter' in families else 'Noto Sans')))
+        family = next((name for name in ('Inter', 'Noto Sans', 'Segoe UI') if name in families), owner.font().family())
+        owner.setFont(type_font('body', QFont(family)))
         self.apply_theme()
         QApplication.instance().styleHints().colorSchemeChanged.connect(self.system_theme_changed)
         owner.setWindowTitle('CubeBabyMOD · Studio')
@@ -1220,6 +1221,7 @@ class StudioUI:
         p.new_bank.setText('Buat bank'); p.import_file.setText('Impor file')
         p.new_sound.setText('Paket preset + IR')
         create = QPushButton('Buat baru')
+        self.collection_create = create
         create.setProperty('menuControl', True)
         menu = QMenu(create)
         for button in (p.new_bank, p.new_sound):
@@ -1227,6 +1229,8 @@ class StudioUI:
             button.hide()
             menu.addAction(button.text(), button.click)
         create.setMenu(menu)
+        for button in (p.new_preset, create, p.import_file):
+            button.setSizePolicy(QSizePolicy.Ignored, QSizePolicy.Preferred)
         left.addLayout(row(p.new_preset, create, p.import_file))
         p.kind_filter = QComboBox(); p.kind_filter.addItem('Semua', None)
         for text,value in (('Preset','preset'),('IR','ir'),('Bank','bank'),('Paket','sound')): p.kind_filter.addItem(text,value)

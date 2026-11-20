@@ -1,0 +1,14 @@
+.git
+.aws
+.agents
+.codex
+build
+dist
+backups
+library_data
+CubeSuite
+*.zip
+__pycache__
+**/__pycache__
+analysis
+anti-slop

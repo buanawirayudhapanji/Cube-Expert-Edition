@@ -6,6 +6,9 @@ import os
 from pathlib import Path
 import tempfile
 import uuid
+import sys
+from .app_paths import data_root
+from .windows_io import replace_write_through
 from .presets import validate_presets
 from .protocol import parse_ir_slot
 
@@ -15,6 +18,9 @@ MAX_FILE = 1024*1024
 
 def durable_directory(path):
     path = Path(path)
+    if sys.platform == 'win32':
+        path.mkdir(parents=True, exist_ok=True)
+        return
     missing = []
     current = path
     while not current.exists():
@@ -24,6 +30,13 @@ def durable_directory(path):
         fd = os.open(directory.parent, os.O_RDONLY | os.O_DIRECTORY)
         try: os.fsync(fd)
         finally: os.close(fd)
+
+
+def replace_file(source, destination):
+    if sys.platform == 'win32':
+        replace_write_through(source, destination)
+    else:
+        os.replace(source, destination)
 
 
 def atomic_json(path, data):
@@ -37,10 +50,11 @@ def atomic_json(path, data):
         with tempfile.NamedTemporaryFile(dir=path.parent, prefix='.saving-', delete=False) as stream:
             temp = Path(stream.name)
             stream.write(payload); stream.flush(); os.fsync(stream.fileno())
-        os.replace(temp, path)
-        fd = os.open(path.parent, os.O_RDONLY | os.O_DIRECTORY)
-        try: os.fsync(fd)
-        finally: os.close(fd)
+        replace_file(temp, path)
+        if sys.platform != 'win32':
+            fd = os.open(path.parent, os.O_RDONLY | os.O_DIRECTORY)
+            try: os.fsync(fd)
+            finally: os.close(fd)
     finally:
         if temp is not None:
             temp.unlink(missing_ok=True)
@@ -130,7 +144,7 @@ def load_item(path):
 class Collection:
     def __init__(self, root=None):
         self.root = Path(root or os.environ.get('CUBEBABY_LIBRARY_DIR') or
-                         Path(__file__).resolve().parent.parent/'library_data')
+                         data_root()/'library_data')
 
     def save(self, item):
         validate_item(item)

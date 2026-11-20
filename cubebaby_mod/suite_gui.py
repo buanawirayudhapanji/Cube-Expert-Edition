@@ -4,6 +4,7 @@ Transport/flash backup remains shared with the diagnostic Window. Effects and
 preview are serialized with all other MIDI traffic on the same connection.
 """
 from pathlib import Path
+from .app_paths import backup_directory
 from .ui_states import confirm_question
 from .rendering_ui import Waveform
 import time
@@ -444,7 +445,7 @@ class SuiteWindow(Window):
         desired = self.desired_record()
         def done(result):
             self.ir_writer = IRWriter(self.device_info, slot, result['record'], desired,
-                                      lambda a, s, raw: save_backup(Path(__file__).parent.parent/'backups', a, s, raw),
+                                      lambda a, s, raw: save_backup(backup_directory(), a, s, raw),
                                       clock=time.monotonic)
             self.drive_writer()
         self.run_memory(read_steps(0, address, IR_SLOT_SIZE, 'record'), done, f'Membaca target IR {slot+1}')
@@ -557,7 +558,7 @@ class SuiteWindow(Window):
         self.ir_slot.setCurrentIndex(slot)
         def done(result):
             self.ir_writer = IRWriter(self.device_info, slot, result['record'], sector[:IR_SLOT_SIZE],
-                                      lambda a, s, raw: save_backup(Path(__file__).parent.parent/'backups', a, s, raw),
+                                      lambda a, s, raw: save_backup(backup_directory(), a, s, raw),
                                       desired_sector=sector, clock=time.monotonic)
             self.drive_writer()
         self.run_memory(read_steps(0, address, IR_SLOT_SIZE, 'record'), done, f'Membaca slot {slot+1}')

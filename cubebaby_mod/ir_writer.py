@@ -10,6 +10,9 @@ import os
 from pathlib import Path
 import time
 import uuid
+import sys
+import tempfile
+from .windows_io import replace_write_through
 from .protocol import (
     IR_SLOT_SIZE, IR_SLOT_STRIDE, IR_READ_CHUNK, ir_slot_address, read_request,
     parse_read_response, flash_erase_request, flash_write_request, parse_write_ack,
@@ -32,6 +35,19 @@ def save_backup(directory, address, slot, data):
     payload = {'format': 'cubebaby-sector-backup-v1', 'device_code': 20230,
                'slot': slot+1, 'address': address, 'size': len(data),
                'sha256': hashlib.sha256(data).hexdigest(), 'sector_hex': data.hex(' ')}
+    if sys.platform == 'win32':
+        temp = None
+        try:
+            with tempfile.NamedTemporaryFile(dir=directory, prefix='.backup-', delete=False) as stream:
+                temp = Path(stream.name)
+                stream.write(json.dumps(payload, indent=2).encode('utf-8'))
+                stream.flush()
+                os.fsync(stream.fileno())
+            replace_write_through(temp, path, replace=False)
+        finally:
+            if temp is not None:
+                temp.unlink(missing_ok=True)
+        return str(path)
     with path.open('x', encoding='utf-8') as stream:
         json.dump(payload, stream, indent=2)
         stream.flush()

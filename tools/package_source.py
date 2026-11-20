@@ -5,7 +5,7 @@ from zipfile import ZipFile, ZIP_DEFLATED
 ROOT = Path(__file__).resolve().parent.parent
 destination = ROOT/'CubeBabyMOD-cubesuite-editor.zip'
 with ZipFile(destination, 'w', ZIP_DEFLATED) as archive:
-    for name in ('README.md', 'PANDUAN_BANK.md', '.gitignore', 'cubebaby_mod', 'tests', 'tools', 'analysis'):
+    for name in ('README.md', 'INSTALL.md', 'PANDUAN_BANK.md', '.gitignore', '.dockerignore', 'requirements.txt', 'requirements-build.txt', '.github', 'packaging', 'cubebaby_mod', 'tests', 'tools', 'analysis'):
         source = ROOT/name
         paths = source.rglob('*') if source.is_dir() else [source]
         for path in sorted(paths):

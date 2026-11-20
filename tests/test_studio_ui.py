@@ -31,7 +31,7 @@ class StudioTests(unittest.TestCase):
                     self.app.processEvents()
                 viewport = ui.viewports[page]
                 self.assertEqual(self.w.width(), width)
-                self.assertLessEqual(viewport.widget().minimumSizeHint().width(), viewport.viewport().width())
+                self.assertLessEqual(viewport.widget().minimumSizeHint().width(), viewport.viewport().width(), (width, page))
                 self.assertEqual(viewport.horizontalScrollBar().maximum(), 0)
                 if width >= 1000:
                     self.assertEqual(viewport.verticalScrollBar().maximum(), 0, (width, page))
@@ -81,7 +81,7 @@ class StudioTests(unittest.TestCase):
             page = viewport.widget()
             self.assertEqual(viewport.horizontalScrollBarPolicy(), Qt.ScrollBarAlwaysOff)
             self.assertEqual((self.w.width(), self.w.height()), (1000, 680))
-            self.assertLessEqual(page.minimumSizeHint().width(), page.width())
+            self.assertLessEqual(page.minimumSizeHint().width(), page.width(), i)
             self.assertLessEqual(page.minimumSizeHint().height(), page.height())
             for tabs in page.findChildren(QTabWidget):
                 for index in range(tabs.count()):
