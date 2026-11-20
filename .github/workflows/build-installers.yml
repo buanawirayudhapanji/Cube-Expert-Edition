@@ -34,6 +34,9 @@ jobs:
           cache-dependency-path: requirements-build.txt
       - name: Install build dependencies
         run: python -m pip install -r requirements-build.txt
+      - name: Configure fonts for offscreen checks
+        shell: pwsh
+        run: '"QT_QPA_FONTDIR=$env:WINDIR\Fonts" >> $env:GITHUB_ENV'
       - name: Capture Windows layout metrics
         run: python tools/layout_diagnostics.py > layout-diagnostics.txt
       - name: Test source on Windows

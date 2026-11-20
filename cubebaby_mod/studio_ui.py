@@ -285,7 +285,8 @@ class StudioUI:
         for widget in (owner.device_label, owner.ir_status, owner.edit_status):
             widget.setStyleSheet(''); widget.setObjectName('muted')
         families = QFontDatabase.families()
-        owner.setFont(type_font('body', QFont('Inter' if 'Inter' in families else 'Noto Sans')))
+        family = next((name for name in ('Inter', 'Noto Sans', 'Segoe UI') if name in families), owner.font().family())
+        owner.setFont(type_font('body', QFont(family)))
         self.apply_theme()
         QApplication.instance().styleHints().colorSchemeChanged.connect(self.system_theme_changed)
         owner.setWindowTitle('CubeBabyMOD · Studio')

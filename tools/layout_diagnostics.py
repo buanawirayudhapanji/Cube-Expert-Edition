@@ -11,6 +11,7 @@ test.setUp()
 overflow = []
 try:
     window, app = test.w, test.app
+    print('FONT', window.font().family(), window.fontMetrics().horizontalAdvance('Buat preset'))
     ui = window.studio_ui
     ui.set_reduced_motion(True)
     window.show()
