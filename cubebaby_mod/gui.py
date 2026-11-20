@@ -3,6 +3,7 @@ import json
 import sys
 import time
 from pathlib import Path
+from .app_paths import backup_directory
 from datetime import datetime, timezone
 import mido
 from PySide6.QtCore import QTimer
@@ -516,7 +517,7 @@ class Window(QMainWindow):
             self.ir_writer = IRWriter(self.device_info, snapshot['slot']-1,
                                       bytes.fromhex(snapshot['raw_hex']), self.desired_record(),
                                       lambda address, slot, raw: save_backup(
-                                          Path(__file__).resolve().parent.parent/'backups', address, slot, raw),
+                                          backup_directory(), address, slot, raw),
                                       desired_sector=self.imported_sector, clock=time.monotonic)
             self.edit_status.setText(f'Membaca sektor slot {snapshot["slot"]} untuk cadangan…')
             self.drive_writer()

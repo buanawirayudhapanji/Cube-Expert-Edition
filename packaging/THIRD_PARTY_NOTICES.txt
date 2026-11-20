@@ -1,0 +1,17 @@
+Komponen yang disertakan dalam paket CubeBabyMOD:
+
+Python: Python Software Foundation License https://docs.python.org/3/license.html
+PySide6 / Shiboken6 dan Qt: LGPLv3/GPL atau lisensi Qt yang berlaku per modul.
+https://doc.qt.io/qtforpython-6/licenses.html
+https://doc.qt.io/qt-6/licenses-used-in-qt.html
+Mido: MIT https://github.com/mido/mido
+python-rtmidi / RtMidi: lisensi permisif yang disertakan paket.
+https://github.com/SpotlightKid/python-rtmidi
+https://github.com/thestk/rtmidi
+PyInstaller bootloader: GPL dengan pengecualian distribusi aplikasi.
+https://pyinstaller.org/en/stable/license.html
+AppImage runtime: MIT https://github.com/AppImage/type2-runtime
+
+Metadata/lisensi paket Python disertakan dalam _internal sesuai distribusinya.
+Aset referensi CubeSuite mempertahankan kepemilikan pembuat aslinya.
+Dokumen ini tidak menetapkan lisensi baru untuk source CubeBabyMOD.

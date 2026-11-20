@@ -6,6 +6,10 @@ konversi IR otomatis, A/B, serta koleksi preset untuk target A/B/C. Updater
 firmware belum tersedia. Tampilan Studio menyediakan navigasi samping, kontrol efek berkelompok, dan alur koleksi yang terpisah.
 Matriks lengkap ada di `analysis/PARITY.md`.
 
+## Installer Linux dan Windows
+
+Paket AppImage Linux dan Setup.exe Windows beserta cara build tersedia pada [panduan installer](INSTALL.md). Paket membawa Python/Qt dan menyimpan Koleksi/cadangan di folder pengguna.
+
 ## Tampilan Studio
 
 - **Editor suara**: pilih A/B/C, atur Volume atau klik tahap di rantai efek. Klik **Simpan efek** untuk menyimpan perubahan. **Urungkan** mengembalikan slot yang dipilih ke nilai terakhir yang dibaca atau disimpan. Tab kanan berisi meter, File WAV, dan Slot IR.

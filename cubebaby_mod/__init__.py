@@ -1,1 +1,3 @@
-"""CubeBabyMOD: native Linux diagnostics and protocol exploration."""
+"""CubeBabyMOD desktop editor and pedal diagnostics."""
+
+__version__ = '0.1.0'

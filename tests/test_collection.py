@@ -47,7 +47,7 @@ class CollectionTests(unittest.TestCase):
     def test_atomic_save_failure_keeps_old_file_and_cleans_temp(self):
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp)/'file.json'; atomic_json(path, {'old': 1})
-            with patch('cubebaby_mod.collection.os.replace', side_effect=OSError('disk error')):
+            with patch('cubebaby_mod.collection.replace_file', side_effect=OSError('disk error')):
                 with self.assertRaises(OSError): atomic_json(path, {'new': 2})
             self.assertEqual(json.loads(path.read_text()), {'old': 1})
             self.assertEqual([p.name for p in Path(tmp).iterdir()], ['file.json'])

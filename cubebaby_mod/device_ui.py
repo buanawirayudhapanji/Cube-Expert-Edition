@@ -3,6 +3,7 @@ from datetime import datetime
 from html import escape
 import json
 from pathlib import Path
+from .app_paths import backup_directory
 from .ui_states import confirm_question
 from .theme_tokens import css, qc
 
@@ -56,7 +57,7 @@ class BackupPanel(QWidget):
     def __init__(self, owner, directory=None):
         super().__init__()
         self.owner = owner
-        self.directory = Path(directory or Path(__file__).resolve().parent.parent / 'backups')
+        self.directory = Path(directory or backup_directory())
         layout = QVBoxLayout(self)
         layout.setContentsMargins(0, 0, 0, 0)
         controls = QHBoxLayout()

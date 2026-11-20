@@ -4,6 +4,7 @@ No implicit retry or whole-bank rollback; a partial failure reports its complete
 slots and backups. IRWriter rechecks every sector before its erase.
 """
 from pathlib import Path
+from .app_paths import backup_directory
 import time
 import uuid
 from .collection import validate_item, unpacked, make_item, packed, atomic_json, durable_directory
@@ -22,7 +23,7 @@ class BankTransfer:
         # Serialize ownership: no caller can edit an in-progress plan.
         self.irs = [(row['slot'], unpacked(row, 'ir')) for row in bank['irs']]
         self.presets = [(row['slot'], unpacked(row, 'preset')) for row in bank['presets']]
-        self.root = Path(directory or Path(__file__).resolve().parent.parent/'backups')/f'transfer-{uuid.uuid4().hex}'
+        self.root = Path(directory or backup_directory())/f'transfer-{uuid.uuid4().hex}'
         self.backups = {}
         self.original = {}
         self.original_presets = None

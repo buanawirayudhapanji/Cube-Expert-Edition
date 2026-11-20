@@ -1,0 +1,15 @@
+# Audit sebelum packaging Linux dan Windows
+
+Permintaan pengguna: paket Linux dan Windows, tanpa instalasi Python manual. Audit menemukan belum ada metadata dependency/build/installer; aplikasi memakai PySide6, QtMultimedia, mido dan python-rtmidi serta aset relatif `suite_gui.ASSETS`. `midi.enumerate_ports` memaksa LINUX_ALSA; Windows memerlukan WINDOWS_MM. Koleksi dan cadangan default berada di sebelah source, yang tidak cocok untuk AppImage read-only atau lokasi instalasi.
+
+Rencana bertahap: (1) tambah helper lokasi data; mode source tetap memakai folder proyek dan env Koleksi yang sudah ada, mode frozen memakai lokasi data per pengguna. Ganti hanya lokasi default pada Collection, BackupPanel, GUI, suite dan BankTransfer; format dan logika transfer tidak berubah. Pilih API MIDI berdasarkan OS tanpa mengubah protokol/pesan. (2) build PyInstaller onedir dengan semua aset, modul MIDI dinamis dan QtMultimedia/native dialog plugin; AppImage Linux plus integrasi menu per pengguna, Inno Setup Windows per pengguna/uninstaller. (3) tes path/backend, suite regresi, smoke bundle, pengecekan isi/hash, dan workflow build native Linux/Windows.
+
+Tidak mengubah layout, widget, objectName, signal/slot, handler editor/koleksi/A-B/perangkat, konfirmasi atau algoritme audio. Perubahan lokasi data hanya diperlukan untuk paket terpasang; data pengguna tidak dimasukkan ke paket dan tidak dimigrasikan otomatis. Build dependencies PyInstaller, appimagetool dan Inno Setup hanya alat packaging, bukan runtime baru. Python/Qt/MIDI dibundel, sehingga ukuran paket lebih besar. Tidak menulis/mengunggah repo atau menjalankan workflow eksternal tanpa repo dan otorisasi yang jelas.
+
+Batas lingkungan: host Linux x86_64/glibc 2.44, bukan Windows. PyInstaller bukan cross-compiler. Artifact Linux lokal diuji untuk host ini; build generik perlu baseline distro lebih tua. Windows .exe harus dibangun/diverifikasi di runner Windows. Docker terpasang tetapi socket belum dapat diakses. Git metadata di workspace tidak dikenali. Metadata dan format bank/preset/IR tetap.
+
+Audit portabilitas tambahan: collection.atomic_json/durable_directory dan ir_writer.save_backup memakai O_DIRECTORY/fsync khusus POSIX. Untuk Windows gunakan publikasi file sementara yang sudah di-fsync melalui MoveFileExW WRITE_THROUGH (tanpa replace untuk cadangan eksklusif); kegagalan tetap dilempar sebelum operasi tulis pedal. Jalur POSIX tetap, format/payload/urutan backup-before-erase tidak berubah. Ini diperlukan agar installer Windows berfungsi dan tidak sekadar membuka UI. Rujukan: https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-movefileexw .
+
+Repo GitHub kini tersedia pada main (`9da7ebe`), izin akses telah dibaca. Rencana memakai branch packaging terpisah dan push-trigger Actions, tanpa mengubah main; hasil build diambil sebagai artifact, bukan menerbitkan release otomatis.
+
+Dependency release memakai komponen PySide6_Essentials dan PySide6_Addons (tetap namespace PySide6) agar metapackage PySide6 6.12 tidak menarik WebEngine/PDF yang tidak digunakan. Semua versi dipatok. Ini mengurangi dependency build tanpa menghilangkan QtWidgets/QtMultimedia.
