@@ -6,7 +6,7 @@ from PySide6.QtCore import Qt, QSize, QTimer, QCoreApplication, QSignalBlocker, 
 from PySide6.QtGui import QFont, QFontDatabase, QKeySequence, QShortcut, QIcon, QPixmap, QPainter, QPen, QColor
 from PySide6.QtWidgets import (
     QWidget, QFrame, QLabel, QPushButton, QVBoxLayout, QHBoxLayout, QGridLayout, QBoxLayout,
-    QTabWidget, QStackedWidget, QComboBox, QProgressBar, QToolButton, QInputDialog, QSizePolicy, QMenu, QWidgetAction, QListView, QAbstractItemView, QGraphicsOpacityEffect, QButtonGroup, QLineEdit, QAbstractSpinBox, QCheckBox, QMessageBox, QApplication, QProxyStyle, QStyle, QDialog,
+    QTabWidget, QStackedWidget, QComboBox, QProgressBar, QToolButton, QInputDialog, QSizePolicy, QMenu, QWidgetAction, QListView, QAbstractItemView, QGraphicsOpacityEffect, QButtonGroup, QLineEdit, QAbstractSpinBox, QCheckBox, QMessageBox, QApplication, QProxyStyle, QStyle, QDialog, QStyleFactory,
 )
 
 from .adaptive_ui import AdaptiveViewport, ResizeObserver
@@ -98,7 +98,7 @@ class StudioUI:
         self.restoring_preferences = True
         app = QApplication.instance()
         if not hasattr(app, '_cubebaby_tooltip_style'):
-            app._cubebaby_tooltip_style = TooltipStyle()
+            app._cubebaby_tooltip_style = TooltipStyle(QStyleFactory.create('Fusion'))
             app.setStyle(app._cubebaby_tooltip_style)
         old = owner.takeCentralWidget()
         root = AmbientBackground(); self.ambient = root; self.theme.root = root; root.setObjectName('shell'); owner.setCentralWidget(root)

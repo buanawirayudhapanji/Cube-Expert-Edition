@@ -56,6 +56,10 @@ jobs:
           path: dist/*
           if-no-files-found: error
           compression-level: 0
+      - name: Diagnose Windows layout failure
+        if: failure()
+        shell: pwsh
+        run: python tools/layout_diagnostics.py *> layout-diagnostics.txt
       - name: Upload failed checks
         if: failure()
         uses: actions/upload-artifact@v7
@@ -63,5 +67,6 @@ jobs:
           name: Windows-build-diagnostics
           path: |
             dist/*.json
+            layout-diagnostics.txt
             build/package/pyinstaller/**/warn-*.txt
           if-no-files-found: ignore

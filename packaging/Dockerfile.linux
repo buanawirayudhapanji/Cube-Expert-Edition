@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 RUN python3 -m venv /opt/buildenv
 COPY requirements.txt requirements-build.txt /opt/requirements/
-RUN /opt/buildenv/bin/python -m pip install --no-cache-dir -r /opt/requirements/requirements-build.txt
+RUN /opt/buildenv/bin/python -m pip install --no-cache-dir --timeout 180 --retries 5 -r /opt/requirements/requirements-build.txt
+RUN apt-get update && apt-get install -y --no-install-recommends file && rm -rf /var/lib/apt/lists/*
 ENV PATH="/opt/buildenv/bin:${PATH}" PYINSTALLER_CONFIG_DIR=/tmp/cubebaby-build-cache
 WORKDIR /src

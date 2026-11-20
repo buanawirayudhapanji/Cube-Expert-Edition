@@ -157,7 +157,7 @@ def main():
          '--distpath', work / 'frozen', '--workpath', work / 'pyinstaller',
          ROOT / 'packaging/CubeBabyMOD.spec'], env=env)
     bundle = work / 'frozen/CubeBabyMOD'
-    for name in ('README.md', 'PANDUAN_BANK.md', 'packaging/THIRD_PARTY_NOTICES.txt'):
+    for name in ('README.md', 'INSTALL.md', 'PANDUAN_BANK.md', 'packaging/THIRD_PARTY_NOTICES.txt'):
         shutil.copy2(ROOT / name, bundle / Path(name).name)
     if args.format == 'linux':
         artifacts = appimage(bundle, work, output, icon_dir, args.appimagetool)

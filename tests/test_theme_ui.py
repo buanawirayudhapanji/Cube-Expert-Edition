@@ -44,8 +44,8 @@ class ThemeTests(unittest.TestCase):
         root = Path(__file__).resolve().parent.parent/'cubebaby_mod'
         for path in root.rglob('*.py'):
             if path.name == 'theme_tokens.py':continue
-            self.assertIsNone(re.search(r'#[0-9a-fA-F]{3,8}\b|rgba?\(\s*\d',path.read_text()),path)
-        self.assertNotIn('#',(root/'assets/ui/check.svg').read_text())
+            self.assertIsNone(re.search(r'#[0-9a-fA-F]{3,8}\b|rgba?\(\s*\d',path.read_text(encoding='utf-8')),path)
+        self.assertNotIn('#',(root/'assets/ui/check.svg').read_text(encoding='utf-8'))
 
     def test_theme_switch_updates_all_pages_icons_palette_and_log_without_device_write(self):
         ui = self.w.studio_ui

@@ -13,3 +13,5 @@ Audit portabilitas tambahan: collection.atomic_json/durable_directory dan ir_wri
 Repo GitHub kini tersedia pada main (`9da7ebe`), izin akses telah dibaca. Rencana memakai branch packaging terpisah dan push-trigger Actions, tanpa mengubah main; hasil build diambil sebagai artifact, bukan menerbitkan release otomatis.
 
 Dependency release memakai komponen PySide6_Essentials dan PySide6_Addons (tetap namespace PySide6) agar metapackage PySide6 6.12 tidak menarik WebEngine/PDF yang tidak digunakan. Semua versi dipatok. Ini mengurangi dependency build tanpa menghilangkan QtWidgets/QtMultimedia.
+
+Build native pertama: Linux perlu utilitas file; Windows mengungkap default encoding cp1252 dalam tes pembacaan source dan perbedaan minimum layout. Source test dibaca UTF-8; basis style widget ditetapkan Fusion agar ukuran kontrol konsisten lintas OS, tanpa memaksa QFileDialog non-native. Tes layout tetap ketat dan mendapat konteks page/ukuran; diagnostik layout ditambahkan pada workflow saat gagal.
